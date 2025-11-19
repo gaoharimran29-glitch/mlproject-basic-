@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Segmentation Prediction</title>
+</head>
+<style>
+    .center {
+        text-align: center;
+    }
+</style>
+<body>
+    <h1 class="center">Customer Segmentation Prediction</h1>
+    <fieldset>
+        <form method="POST">
+            <p><b>This clustering model groups customers into four categories (Potential Customer, Lost Customer, Loyal Customer, At Risk Customer) based on purchasing behavior, spending patterns, and shopping frequency.
+            It helps businesses identify high-value customers and personalize marketing.
+            The algorithm forms natural groups without predefined labels.
+            Please enter realistic type of data and appropriate values for better performance of model.
+            </b></p>
+            <h4>Model Used: KMeans <br>
+            Silhouette Score = 0.616 </h4>
+            <label>Last Purchase Date: </label>
+            <input type="date" placeholder="Enter last purchase date" name="last_purchase" required>
+            <br>
+            <br>
+
+            <label>No. of Purchases till now: </label>
+            <input type="number" placeholder="Enter no. of purchases" name="num_purchase" required>
+            <br>
+            <br>
+
+            <label>Total Amount Spent: </label>
+            <input type="text" placeholder="Enter total amount spent" name='total_amount' required>
+            <br>
+            <br>
+
+            <button type="submit">Predict</button>
+            <br>
+            <br>
+        </form>
+
+{% if prediction is not none %}
+    {% if prediction is string and "Error" in prediction %}
+        <div class="error">{{ prediction }}</div>
+    {% else %}
+        <div class="result">Prediction: <b>{{ prediction }}</b></div>
+    {% endif %}
+{% endif %}
+
+        <br>
+        <br>
+        <a href="/">← Back to Home</a>
+    </fieldset>
+
+</body>
+</html>

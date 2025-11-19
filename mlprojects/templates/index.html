@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic ML Projects</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0 1rem;
+      font-family: Arial, sans-serif;
+    }
+
+    .center-text {
+      text-align: center;
+    }
+
+    .top-right {
+      position: fixed;
+      top: 8px;
+      right: 10px;
+      background: #fff;
+      padding: 4px 10px;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+
+    .top-right a {
+      color: #0077b5;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .top-right a:hover {
+      text-decoration: underline;
+    }
+
+    .footer {
+      margin-top: 2rem;
+      padding: 1rem 0;
+      border-top: 2px solid #ddd;
+      font-size: 0.95rem;
+    }
+
+    .footer a {
+      color: #0077b5;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1 class="center-text">My Basic ML Projects</h1>
+
+  <h3>Supervised Learning</h3>
+
+  <ul>
+    <li><h3>Regression</h3></li>
+    <ol>
+      <li><h4><a href="{{ url_for('student_performance') }}">Student Performance Predictor</a></h4></li>
+      <li><h4><a href="{{ url_for('employee_salary') }}">Employee Salary Predictor</a></h4></li>
+      <li><h4><a href="{{ url_for('calory_burned') }}">Calories Burned Predictor</a></h4></li>
+    </ol>
+
+    <li><h3>Classification</h3></li>
+    <ol>
+      <li><h4><a href="{{ url_for('home_loan') }}">Home Loan Approval Predictor</a></h4></li>
+      <li><h4><a href="{{ url_for('diabetes_risk') }}">Diabetes Risk Predictor</a></h4></li>
+      <li><h4><a href="{{ url_for('customer_churn') }}">Telecom Customer Churn Predictor</a></h4></li>
+    </ol>
+  </ul>
+
+  <h3>Unsupervised Learning</h3>
+
+  <ul>
+    <li><h3>Clustering</h3></li>
+    <ol>
+      <li><h4><a href="{{ url_for('customer_segmentation') }}">Customer Segmentation Project</a></h4></li>
+      <li><h4><a href="{{ url_for('house_clustering') }}">Real Estate House Clustering</a></h4></li>
+    </ol>
+
+    <li><h3>Association</h3></li>
+    <ol>
+      <li><h4><a href="{{ url_for('market_basket') }}">Market Basket Rules Mining</a></h4></li>
+      <li><h4><a href="{{ url_for('symptoms_rules') }}">Disease Symptoms Rules Mining</a></h4></li>
+    </ol>
+  </ul>
+
+  <div class="footer">
+    <b>OWNER: GAOHAR IMRAN</b><br><br>
+
+    <a href="https://github.com/gaoharimran29-glitch/ML-BASIC-PROJECTS" target="_blank">
+      1. Source Codes & Datasets
+    </a>
+    <br><br>
+
+    <a href="https://www.linkedin.com/in/gaohar-imran-5a4063379/" target="_blank">
+      2. Check out my LinkedIn Profile
+    </a>
+    <br><br>
+
+    <a href="https://github.com/gaoharimran29-glitch" target="_blank">
+      3. Check out my GitHub Profile
+    </a>
+    <br><br>
+
+    <b>Email: gaoharimran3@gmail.com</b>
+  </div>
+
+</body>
+</html>

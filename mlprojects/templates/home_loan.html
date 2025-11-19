@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Loan Approval Predictor</title>
+</head>
+<style>
+    .center {
+        text-align: center;
+    }
+</style>
+<body>
+    <h1 class="center">Home Loan Approval Predictor</h1>
+    <fieldset>
+        <form method="POST" autocomplete="off">
+            <p><b>This classifier predicts whether a loan application is likely to be approved based on income, credit score, dependents, and financial history.
+            It supports banks and applicants in understanding approval chances.
+            The model learns patterns from past loan decisions to classify approvals.
+            Please enter realistic type of data and appropriate values for better performance of model.
+            </b></p>
+            <h4>Model Used: Adaboost Classifier <br>
+            Testing Score:  0.8695652173913043 <br>
+            Training Score:  0.9014492753623189</h4>
+            <label>Choose your gender: </label>
+            <input type="radio" value="Male" name="gender" required> Male
+            <input type="radio" value="Female" name="gender" required> Female
+            <br>
+            <br>
+
+            <label>Are you married ?</label>
+            <input type="radio" value="Yes" name="married" required> Yes
+            <input type="radio" value="No" name="married" required> No
+            <br>
+            <br>
+
+            <label>How many persons are financially dependent on you? </label>
+            <select name="dependent" required>
+                <option value="">Select</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3 or 3+</option>
+            </select>
+            <br>
+            <br>
+
+            <label>Whats your education level: </label>
+            <select name="education" required>
+                <option value="">Select</option>
+                <option value="Graduated">Graduated</option>
+                <option value="Not Graduate">Not Graduate</option>
+            </select>
+            <br>
+            <br>
+            
+            <label>Are you self employed: </label>
+            <select name="self_employed" required>
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+            <br>
+            <br>
+
+            <label>Enter applicant income: </label>
+            <input type="number" placeholder="Enter applicant income" name="applicant_income" required>
+            <br>
+            <br>
+
+            <label>Enter Coapplicant income: </label>
+            <input type="number" placeholder="Enter applicant income" name="coapplicant_income" required>
+            <br>
+            <br>
+
+            <label>Enter Loan Amount: </label>
+            <input type="number" placeholder="Enter Loan Amount" name="loan_amount" required>
+            <br>
+            <br>
+
+            <label>Enter Loan Amount time (in months): </label>
+            <input type="number" placeholder="Enter Loan Amount time (in months)" name="loan_amount_term" required>
+            <br>
+            <br>
+            
+            <label>Does Applicant have a good credit history ? </label>
+            <select name="credit_history" required>
+                <option value="">Select</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+            <br>
+            <br>
+
+            <label>Enter property type: </label>
+            <select name="property_type" required>
+                <option value="">Select</option>
+                <option value="Urban">Urban</option>
+                <option value="Rural">Rural</option>
+                <option value="Semiurban">Semiurban</option>
+            </select>
+            <br>
+            <br>
+
+            <button type="submit">Predict</button>
+
+        </form>
+
+    {% if prediction is not none %}
+        {% if prediction is string and "Error" in prediction %}
+            <div class="error">{{ prediction }}</div>
+
+        {% elif prediction==1 %}
+            <br><br>
+            <div class="result">Loan Status: <b>Approved</b></div>
+
+        {% elif prediction==0 %}
+            <br><br>
+            <div class="result">Loan Status: <b>Not Approved</b></div>
+
+        {% endif %}
+    {% endif %}
+
+    <br><br>
+    <a href="/">← Back to Home</a>
+    </fieldset>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate House Clustering</title>
+</head>
+<style>
+    .center {
+        text-align: center;
+    }
+</style>
+<body>
+    <h1 class="center">Real Estate House Clustering</h1>
+    <fieldset>
+        <form method="POST">
+        <p><b>This model groups houses into four categories (Medium Expensive House , Medium-Large House , Compact / Affordable House , Premium House) based on features such as price, size, location attributes, age, and renovations.
+        It helps users understand property value segments and market patterns.
+        Clustering algorithms reveal hidden structure in real estate data.
+        Please enter realistic type of data and appropriate values for better performance of model.
+        </b></p>
+        <h4>Model Used: KMeans <br>
+        Silhouette Score = 0.531</h4>
+        <label>Floors:</label>
+        <input type="number" step="0.5" name="floors" placeholder="Enter no. of floors" required>
+        <br><br>
+
+        <label>Waterfront (0 = No, 1 = Yes):</label>
+        <input type="number" min="0" max="1" name="waterfront" required>
+        <br><br>
+
+        <label>View (0-4):</label>
+        <input type="number" min="0" max="4" name="view" placeholder="Rate view between (0-4)" required>
+        <br><br>
+
+        <label>Condition (1-5):</label>
+        <input type="number" min="1" max="5" name="condition" placeholder="Rate condition between (1-5)" required>
+        <br><br>
+
+        <label>Grade (1-13):</label>
+        <input type="number" min="1" max="13" placeholder="Grade (1-13)" name="grade" required>
+        <br><br>
+
+        <label>Year of built (years):</label>
+        <input type="number" name="yr_built" placeholder="Enter in which year house built" required>
+        <br><br>
+
+        <label>Year of renovation:</label>
+        <input type="number" name="yr_renovated" placeholder="Enter year of renovation" required>
+        <br><br>
+
+        <label>Bed Rooms:</label>
+        <input type="number" name="bedrooms" placeholder="Enter no. of bedrooms" required>
+        <br><br>
+
+        <label>Bath Rooms:</label>
+        <input type="number" name="bathrooms" step="0.1" placeholder="Enter no. of bathrooms" required>
+        <br><br>
+
+        <label>Sqft Living:</label>
+        <input type="number" step="0.01" name="sqft_living" placeholder="Enter living area (in sqft)" min="1" required>
+        <br><br>
+
+        <label>Sqft Lot:</label>
+        <input type="number" step="0.01" name="sqft_lot" placeholder="Enter lot area (in sqft)" min="1" required>
+        <br><br>
+
+        <label>Sqft Above:</label>
+        <input type="number" step="0.01" name="sqft_above" placeholder="Enter above area (in sqft)" min="1" required>
+        <br><br>
+
+        <label>Sqft Basement: </label>
+        <input type="number" step="0.01" name="sqft_basement" placeholder="Enter basement area (in sqft)" min="1" required>
+        <br><br>
+
+        <label>Price: </label>
+        <input type="number" name="price" placeholder="Enter price of the house" required>
+        <br><br>
+
+        <button type="submit">Predict House Type</button>
+        <br>
+        <br>
+        </form>
+
+    {% if prediction is not none %}
+        {% if prediction is string and "Error" in prediction %}
+            <div class="error">{{ prediction }}</div>
+        {% else %}
+            <div class="result">Prediction: <b>{{ prediction }}</b></div>
+        {% endif %}
+    {% endif %}
+        <br>
+        <br>
+        <a href="/">← Back to Home</a>
+    </fieldset>
+</body>
+</html>

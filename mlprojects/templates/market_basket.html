@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Basket Recommanedation System</title>
+</head>
+<style>
+    .center {
+        text-align: center;
+    }
+</style>
+<body>
+    <h1 class="center">Market Basket Recommendation System</h1>
+    <fieldset>
+        <h3>Model Description</h3>
+        <p>This model uses Market Basket Analysis with the Apriori algorithm to find items that are frequently bought together. When a user selects a product, the system searches association rules and shows the top 3 recommended items based on Lift, indicating the strongest buying relationship.
+            The CSV file contains the mined rules with columns: antecedents, consequences, support, confidence, lift. Please enter realistic type of data and appropriate values for better performance of model</p>
+            <h4>Support: How frequently an itemset appears in the dataset. <br>
+                Confidence: How often rule A → B is true when A occurs. <br>
+                Lift: How much more likely A and B occur together compared to being independent.</h4>
+        <h4>Model Used: Apriori</h4>
+        <form method="POST">
+            <label>Enter Product Name: </label>
+            <select name="item" required>
+                <option value="">Select</option>
+                {% for i in product_name %}
+                    <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <br>
+            <button type="submit">Get Recommendation</button>
+        </form>
+
+    {% if recommendations is not none %}
+        {% if recommendations is string and "Error" in recommendations %}
+            <div class="Error">{{ recommendations }}</div>
+        {% else %}
+            <div class="result">
+                <h4>If user buys {{ item }}</h4>
+                <h4>They must buy: </h4>
+
+                <table border="1">
+                    <tr>
+                    <th>Recommended Item</th>
+                    <th>Support</th>
+                    <th>Confidence</th>
+                    <th>Lift</th>
+                    </tr>
+
+                    {% for r in recommendations %}
+                        <tr>
+                            <td>{{ r.consequent }}</td>
+                            <td>{{ r.support }}</td>
+                            <td>{{ r.confidence }}</td>
+                            <td>{{ r.lift }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+        {% endif %}
+    {% endif %}
+            </div>
+
+        <br>
+        <br>
+        <a href="/">← Back to Home</a>
+
+    </fieldset>
+</body>
+</html>
