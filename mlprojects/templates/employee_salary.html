@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Salary Predictor</title>
+</head>
+<style>
+    .center {
+        text-align: center;
+    }
+</style>
+<body>
+    <h1 class="center">Employee Salary Predictor</h1>
+    <fieldset>
+        <p><b>
+        This model estimates the expected salary of an employee based on experience, job role, education level, and industry standards.
+        It is useful for HR analytics, salary benchmarking, and career planning.
+        The regression approach captures relationships between experience and compensation.
+        Please enter realistic type of data and appropriate values for better performance of model.</b></p>
+        <h4>Model used:  ElasticNet <br>
+        R2 Score: 0.9079802977591143 <br>
+        Testing Score: 0.90883 <br>
+        Training Score: 0.943742</h4>
+        <form method="POST">
+            <label>Job title: </label>
+            <select name="job_title" required>
+                <option value="">Select</option>
+                {% for j in job_titles %}
+                    <option value="{{ j }}">{{ j }}</option>
+                 {% endfor %}
+            </select>  
+            <br>
+            <br>
+
+            <label>Your Education Level:</label>
+            <select name="edu" required>
+                <option value="">Select</option>
+                <option value="Bachelor's">Bachelor's</option>
+                <option value="Master's">Master's</option>
+                <option value="PhD">PhD</option>
+            </select>
+            <br>
+            <br>
+
+            <label>Enter your age: </label>
+            <input type="number" placeholder="Enter Age" min="18" max="60" name="age" required/>
+            <br>
+            <br>
+
+            <label>Gender: </label>
+            <input type="radio" value="Male" name="gender" required> Male
+            <input type="radio" value="Female" name="gender" required> Female
+            <br>
+            <br>
+
+            <label>Enter your years of experience: </label>
+            <input type="number" min="0" max="40" name="exp" required/>
+            <br>
+            <br>
+
+            <button type="submit">Predict My Salary</button>
+
+        </form>
+    
+{% if prediction %}
+    {% if prediction is string and "Error" in prediction %}
+        <div class="error">{{ prediction }}</div>
+    {% else %}
+        <br>
+        <br>
+        <div class="result">Predicted Salary: <b> Rs. {{ prediction }}</b></div>
+    {% endif %}
+{% endif %}
+
+<br><br>
+<a href="/">← Back to Home</a>
+</fieldset>
+</body>
+</html>

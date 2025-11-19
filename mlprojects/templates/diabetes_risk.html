@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Risk Predictor</title>
+</head>
+<style>
+    .center {
+        text-align: center;
+    }
+</style>
+<body>
+    <h1 class="center">Diabetes Risk Predictor</h1>
+    <fieldset>
+        <form method="POST">
+            <p><b>This model predicts a person's risk of developing diabetes based on medical parameters such as glucose level, BMI, age, and family history.
+            It aids early detection and encourages preventive health measures.
+            The classifier identifies patterns commonly found in diabetic patients.
+            Please enter realistic type of data and appropriate values for better performance of model.
+            </b></p>
+            <h4>Model Used: Adaboost Classifier <br>
+            Accuracy Scores: <br>
+            Testing:  0.7467 <br>
+            Training:  0.80125 <br>
+            F1 Score: <br>
+            Testing:  0.666 <br>
+            Training:  0.666</h4>
+            <label>No. of Pregancies: </label>
+            <input type="number" placeholder="Enter No. Of Pregancies" name="pregnancies" required/>
+            <br>
+            <br>
+
+            <label>Glucose Level ( mg / dL ): </label>
+            <input type="number" placeholder="Enter Your Glucose Level" name="glucoselevel" required/>
+            <br>
+            <br>
+
+            <label>Blood pressure (mm Hg): </label>
+            <input type="number" placeholder="Enter Blood pressure (mm Hg): " name="bloodpressure" required/>
+            <br>
+            <br>
+
+            <label>Skin thickness (mm): </label>
+            <input type="number" placeholder="Enter Skin thickness (mm): " name="skinthickness" required/>
+            <br>
+            <br>
+
+            <label>Insulin level (mu U/mL): </label>
+            <input type="number" placeholder="Enter Insulin level (mu U/mL): " name="insulinlevel" required/>
+            <br>
+            <br>
+
+            <label>Body Mass Index: </label>
+            <input type="number" placeholder="Enter Body Mass Index: " name="bmi" required/>
+            <br>
+            <br>
+
+            <label>Family diabetes risk (0–2.5): </label>
+            <input type="number" placeholder="Enter Family diabetes risk (0–2.5): " name="diabetespedigreefunc" required/>
+            <br>
+            <br>
+
+            <label>Age (years): </label>
+            <input type="number" placeholder="Enter Age (years): " name="age" required/>
+            <br>
+            <br>
+            
+            <button type="submit">Predict</button>
+        </form>
+
+    {% if prediction is not none %}
+        {% if prediction is string and "Error" in prediction %}
+            <div class="error">{{ prediction }}</div>
+        {% elif prediction==0 %}
+            <div class="result"><h4><b>You dont have any risk of diabetes</b></h4></div>
+        {% elif prediction==1 %}
+            <div class="result"><h4><b>You have high risk of diabetes</b></h4></div>
+
+        {% endif %}
+    {% endif %}
+
+    <br><br>
+    <a href="/">← Back to Home</a>
+    </fieldset>
+</body>
+</html>
