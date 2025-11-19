@@ -46,18 +46,18 @@ models = {
     }
 }
 
-df1 = pd.read_csv(r"models\Cleaned_Employee_dataset.csv")
+df1 = pd.read_csv(r"models/Cleaned_Employee_dataset.csv")
 job_titles = sorted(df1["Job Title"].unique())
 
-df2 = pd.read_csv(r'models\Clean_Customer_Churn.csv')
+df2 = pd.read_csv(r'models/Clean_Customer_Churn.csv')
 internet_service = sorted(df2['InternetService'].unique())
 contract = sorted(df2['Contract'].unique())
 paymentmethod = sorted(df2['PaymentMethod'].unique())
 
-df3 = pd.read_csv(r'models\Market Basket Rules.csv')
+df3 = pd.read_csv(r'models/Market Basket Rules.csv')
 product_name = sorted(df3['antecedents'].unique())
 
-df4 = pd.read_csv(r'models\Symptoms_rules.csv')
+df4 = pd.read_csv(r'models/Symptoms_rules.csv')
 antecedents = sorted(df4['antecedents'].unique())
 
 app = Flask(__name__)
