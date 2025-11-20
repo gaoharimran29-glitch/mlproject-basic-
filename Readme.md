@@ -2,6 +2,8 @@
 
 **Live Website:** https://mlproject-basic.onrender.com/
 
+![website](mlimages/website.png)
+
 This project is a collection of **10 Basic Machine Learning Projects**, neatly organized into **Supervised**, **Unsupervised**, and **Association Rule Learning**.  
 Each project has its own ML model, HTML form, and Flask route to collect user inputs and generate predictions or clustering results.
 
@@ -73,6 +75,8 @@ Data cleaning, preprocessing, feature engineering, and model training were perfo
 All trained model files (.pkl) are stored and loaded inside the Flask app during runtime.
 File name `modeltraining&datasets` contains all the codes of how I performed data cleaning, preprocessing, feature engineering and model training and datasets.
 
+![vscode](mlimages/vscode.png)
+
 ### Flask App  
 The `mlprojects` folder contains:
 
@@ -89,10 +93,13 @@ The app is deployed using:
 - `requirements.txt` for dependencies  
 - Main entry point: `app.py`  
 
+![renderdashboard](mlimages/render-dashboard.png)
+
+![renderlogs](mlimages/renderlogs.png)
 ---
 
 ## Live Demo
 
 **Visit Website:** https://mlproject-basic.onrender.com/
-
+Website can take 1-2 min to load due to render deployment.
 ---
