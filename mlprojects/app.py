@@ -87,11 +87,12 @@ def student_performance():
             }])
 
             prediction = round(model.predict(df)[0] , 2)
+
+            if (prediction < 0):
+                prediction = 0
         
         except Exception as e:
             prediction = f"Error: {e}"
-
-    
 
     return render_template("student_performance.html" , prediction=prediction)
 
